@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import {Routes, Route} from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen';
+import CssScreen from './screens/CssScreen';
+import TeamScreen from './screens/TeamScreen';
+import DetailScreen from './screens/DetailScreen';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/css" element={<CssScreen />} />
+        <Route path="/team" element={<TeamScreen />} />
+        <Route path="/detail/:id" element={<DetailScreen />} />
+      </Routes>
     </div>
   );
 }
